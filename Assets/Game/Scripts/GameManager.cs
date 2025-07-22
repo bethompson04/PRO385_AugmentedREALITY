@@ -33,27 +33,4 @@ public class GameManager : MonoBehaviour
         state = newState;
         Debug.Log(state);
     }
-
-    private void Update()
-    {
-        InputSystem.onAnyButtonPress.Call(currentAction =>
-        {
-            switch (instance.state)
-            {
-                case GameState.TITLE:
-                    instance.setState(GameState.POND);
-                    break;
-                case GameState.POND:
-                    instance.setState(GameState.FIGHT);
-                    break;
-                case GameState.FIGHT:
-                    instance.setState(GameState.AQUARIUM);
-                    break;
-                case GameState.AQUARIUM:
-                    instance.setState(GameState.TITLE);
-                    break;
-            }
-        });
-        
-    }
 }
