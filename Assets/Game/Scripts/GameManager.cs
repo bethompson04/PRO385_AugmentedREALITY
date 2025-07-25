@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         TITLE,
+        CREATION,
         POND,
         FIGHT,
         AQUARIUM
