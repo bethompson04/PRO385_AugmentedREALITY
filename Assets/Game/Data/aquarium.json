@@ -1,0 +1,16 @@
+{
+    "list": [
+        {
+            "name": "Fishie",
+            "description": "woo",
+            "modelPath": "fishie",
+            "weight": 1.0
+        },
+        {
+            "name": "Other Fishie",
+            "description": "wahh",
+            "modelPath": "other_fishie",
+            "weight": 3.0
+        }
+    ]
+}

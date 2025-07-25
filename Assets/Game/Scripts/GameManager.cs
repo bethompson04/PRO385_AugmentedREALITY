@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        FishData fishData;
+    }
+
     public void setState(GameState newState)
     {
         state = newState;
