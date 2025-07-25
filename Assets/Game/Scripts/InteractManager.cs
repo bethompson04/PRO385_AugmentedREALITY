@@ -1,9 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Xml.Serialization;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
-using UnityEditorInternal;
-using System.Runtime.CompilerServices;
 
 public class InteractManager : MonoBehaviour {
 

@@ -3,7 +3,6 @@ using UnityEngine;
 public class PondManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private GameManager gameManager;
     void Start()
     {
     InteractManager.GetInstance().PondSpawned();
