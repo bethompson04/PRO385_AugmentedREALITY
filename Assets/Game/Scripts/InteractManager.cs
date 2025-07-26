@@ -28,7 +28,7 @@ public class InteractManager : MonoBehaviour {
   }
 
   public void PondDestroyed() {
-    Destroy(GameObject.FindGameObjectWithTag("Pond"));
+    GameObject.FindGameObjectWithTag("Pond").GetComponent<PondManager>().DestroyPond();
     Debug.Log("Pond Destroyed, Creation Enabled");
     gameManager.setState(GameManager.GameState.CREATION);
     objectSpawner.SetActive(true);
