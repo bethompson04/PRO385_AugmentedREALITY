@@ -18,7 +18,7 @@ public class PondManager : MonoBehaviour
     InteractManager.GetInstance().PondSpawned();
     rippleSpawnTimer = rippleTimer;
     //animator.Play("PondAppear");
-    //StartCoroutine(SpawnNewRipple(5.0f));
+    StartCoroutine(SpawnNewRipple(5.0f));
     }
 
     // Update is called once per frame
@@ -26,12 +26,15 @@ public class PondManager : MonoBehaviour
     {
       if (rippleSpawnTimer <= 0)
       {
-      //StartCoroutine(SpawnNewRipple(1.0f));
-      }
+      Debug.Log("Kill Ripple");
+      Destroy(currentRipple);
+      StartCoroutine(SpawnNewRipple(1.0f));
+    } else {
       rippleSpawnTimer -= Time.deltaTime;
-    }
-    
+      Debug.Log(rippleSpawnTimer);
 
+    }
+    }
 
 
 
@@ -45,11 +48,10 @@ public class PondManager : MonoBehaviour
   }
     IEnumerator SpawnNewRipple(float waitTime) 
      {
-      Debug.Log("Spawning new ripple...");
+      Debug.Log("Waiting...");
       yield return new WaitForSeconds(waitTime);
       Debug.Log("Spawned New Ripple!");
-      Destroy(currentRipple);
-      currentRipple = Instantiate(ripplePrefab);
+      if (currentRipple == null) currentRipple = Instantiate(ripplePrefab, gameObject.transform);
       rippleSpawnTimer = rippleTimer;
       yield break;
      }
