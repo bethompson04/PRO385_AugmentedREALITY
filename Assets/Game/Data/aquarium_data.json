@@ -1,0 +1,22 @@
+{
+    "list": [
+        {
+            "name": "Goldfish",
+            "description": "It's a lil fishie!",
+            "modelPath": "goldfish.obj",
+            "attack": 1,
+            "defense": 1,
+            "minWeight": 0.15000000596046449,
+            "maxWeight": 0.20000000298023225
+        },
+        {
+            "name": "Bass",
+            "description": "Big ol' boy!",
+            "modelPath": "bass.obj",
+            "attack": 3,
+            "defense": 2,
+            "minWeight": 2.5,
+            "maxWeight": 3.5
+        }
+    ]
+}
