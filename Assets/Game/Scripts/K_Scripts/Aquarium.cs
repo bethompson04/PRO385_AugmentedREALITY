@@ -1,33 +1,71 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [System.Serializable]
-public class AquariumFishData
+public struct AquariumFishData
 {
     public string name;
     public string description;
     public string modelPath;
-    public int attack;
-    public int defense;
-    public float minWeight;
-    public float maxWeight;
+    public float weight;
 }
 
 public class Aquarium : MonoBehaviour
 {
-    [SerializeField] DataList<AquariumFishData> aquariumList;
+    [SerializeField] DataList<AquariumFishData> aquariumDataList;
+    [SerializeField] List<GameObject> fishList;
 
-    private void Awake()
+    [SerializeField][Range(0, 1)] float fishSpeedWeight;
+    [SerializeField] GameObject fishPrefab;
+
+    private void FixedUpdate()
     {
-        LoadAquarium();
+        foreach(var fish in fishList)
+        {
+            AquariumFish f = fish.GetComponent<AquariumFish>();
+            if (f.nextLocation == null || Vector3.Distance(fish.transform.position, f.nextLocation) <= 0.25f)
+            {
+                f.nextLocation = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5));
+                f.timer = 0;
+            }
+            f.timer += fishSpeedWeight * Time.deltaTime / f.data.weight;
+            fish.transform.position = Vector3.Slerp(fish.transform.position, f.nextLocation, f.timer);
+        }
     }
 
     public void LoadAquarium()
     {
-        aquariumList = SystemIO.LoadFile<AquariumFishData>("aquarium_data");
+        aquariumDataList = SystemIO.LoadFile<AquariumFishData>("aquarium_data");
     }
 
     public void SaveAquarium()
     {
-        SystemIO.SaveFile(aquariumList, "aquarium_data");
+        SystemIO.SaveFile(aquariumDataList, "aquarium_data");
+    }
+
+    public void AddFish(AquariumFishData data)
+    {
+        aquariumDataList.list.Add(data);
+    }
+
+    public void SpawnFish()
+    {
+        fishList = new List<GameObject>();
+        StartCoroutine("SpawnFishCoroutine");
+    }
+
+    IEnumerator SpawnFishCoroutine()
+    {
+        foreach (var data in aquariumDataList.list)
+        {
+            yield return new WaitForSeconds(2);
+            GameObject fish = Instantiate(fishPrefab, gameObject.transform);
+            fish.GetComponent<AquariumFish>().setFish(data);
+            fishList.Add(fish);
+        }
+
+        yield return null;
     }
 }
