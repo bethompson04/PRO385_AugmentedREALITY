@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance {  get; private set; }
     public GameState state;
 
+    public Aquarium aquarium;
+
     public void Awake()
     {
         if (instance != null && instance != this)
@@ -30,7 +32,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //FishData fishData;
+        aquarium = gameObject.GetComponent<Aquarium>();
+        aquarium.LoadAquarium();
     }
 
     public void setState(GameState newState)
