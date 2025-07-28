@@ -25,8 +25,9 @@ public class Ripple : MonoBehaviour
     rippleDestination = Random.insideUnitCircle * 0.05f;
   }
 
+  // These are for the animations of them disappearing
   public void DestroyRipple() {
-    animator.Play("RippleDisappear");
+    //animator.Play("RippleDisappear");
   }
 
   public void DeleteRipple() {
