@@ -11,11 +11,14 @@ public class Fish : MonoBehaviour
         SIDEWAYS_INTRO,
         COMBAT,
         END,
+		LOSE,
 		NONE
     }
 	
 	[SerializeField] Transform modelParent;
+	[SerializeField] GameObject boxingGloves;
 	[SerializeField] Slider clashBar;
+	
 
 	[Header("Fish Animation")]
 	[SerializeField] FishState fishState = FishState.SIDEWAYS_INTRO;
@@ -23,22 +26,23 @@ public class Fish : MonoBehaviour
 	[SerializeField] float rotationDamping = 5f;
 	[SerializeField] float lerpPositionDamping = 5f;
 	[SerializeField] float forwardDistance = 1.3f;
+	
 
 	[Header("Fish Data")]
-	[SerializeField] float attack = 1;
-	[SerializeField] float defense = 3;
-	[SerializeField] float minWeight = 0.4f;
-	[SerializeField] float maxWeight = 1f;
+	[SerializeField] float attack = 5;
+	[SerializeField] float defense = 10;
+	[SerializeField] float weight; // based off of min and max weight
 
 	private bool newStateTransition = true;
 	private Camera cam;
 	private PlayerInput playerInput;
 	private InputAction touchPositionAction;
 	private InputAction touchPressAction;
-	private bool isPressed;
+	//private bool isPressed;
 
 	private void Awake()
 	{
+		boxingGloves.SetActive(false);
 		playerInput = GetComponent<PlayerInput>();
 		touchPressAction = playerInput.actions["TouchPress"];
 		touchPositionAction = playerInput.actions["TouchPosition"];
@@ -58,15 +62,17 @@ public class Fish : MonoBehaviour
 			case FishState.SIDEWAYS_INTRO:
                 if (newStateTransition)
 				{
-					StartCoroutine(LerpRotation(0, -90f, 2f, FishState.COMBAT));
+					StartCoroutine(LerpRotation(0, -90f, 4f, FishState.COMBAT));
 					newStateTransition = false;
 				}
 
 				FaceCamera(lerpedRotationY);
+
 				break;
 			case FishState.COMBAT:
 				if (newStateTransition)
 				{
+					boxingGloves.SetActive(true);
 					StartCoroutine(LerpRotation(-90, 0f, 0.5f, FishState.NONE));
 					newStateTransition = false;
 				}
@@ -76,8 +82,19 @@ public class Fish : MonoBehaviour
 
 				break;
 			case FishState.END:
-				StartCoroutine(LerpRotation(0, -90f, 2f, FishState.NONE));
+				if (newStateTransition)
+				{
+					boxingGloves.SetActive(false);
+					StartCoroutine(LerpRotation(0, -90f, 2f, FishState.NONE));
+					newStateTransition = false;
+				}
+				
+
 				FaceCamera(lerpedRotationY);
+
+				break;
+			case FishState.LOSE:
+				Destroy(gameObject);
 				break;
 		}
     }
@@ -87,9 +104,11 @@ public class Fish : MonoBehaviour
         Vector3 camPos = cam.transform.position;
 		Vector3 ourPos = gameObject.transform.position;
 
-		modelParent.localEulerAngles = new Vector3(0, modelRotation, 0);
-		Vector3 relativePos = camPos - gameObject.transform.position;
+		// Apply Y Rotation
+		modelParent.localRotation = Quaternion.Euler(0f, modelRotation, 0f);
 
+		// Fish Face Camera
+		Vector3 relativePos = camPos - gameObject.transform.position;
 		Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
 		gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, Time.deltaTime * rotationDamping);
 
@@ -106,13 +125,13 @@ public class Fish : MonoBehaviour
             t = t * t * (3f - 2f * t);
 			
 			lerpedRotationY = Mathf.LerpAngle(start, end, t);
+			Debug.Log(lerpedRotationY);
 
             timeElapsed += Time.deltaTime;
             yield return null;
         }
 
 		lerpedRotationY = end;
-        //modelParent.eulerAngles = new Vector3 (0, lerpedRotationY, 0);
 
 		if (endState != FishState.NONE)
 		{
@@ -132,15 +151,10 @@ public class Fish : MonoBehaviour
 
 		clashBar.value -= defense * Time.deltaTime;
 
-		if (touchPressAction.IsPressed())
+		if (touchPressAction.WasPerformedThisFrame())
 		{
 			clashBar.value += attack;
-			print("bam");
+			print("wabam!");
 		}
-	}
-
-	private void TouchPressed(InputAction.CallbackContext context)
-	{
-		Vector2 position = touchPositionAction.ReadValue<Vector2>();
 	}
 }
