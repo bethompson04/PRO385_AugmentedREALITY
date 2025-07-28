@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        FishData fishData;
+        //FishData fishData;
     }
 
     public void setState(GameState newState)
