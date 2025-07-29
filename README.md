@@ -1,7 +1,7 @@
 # Fish Fury
 <p align="center">
-  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg" width="200" height="150" />
-  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg" width="200" height="150" />
+  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg" width="720" height="1560" />
+  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg" width="720" height="1560" />
 </p>
 
 ## Made by:
