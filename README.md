@@ -21,4 +21,3 @@ Fish Fury is an action fishing AR game for Android! Set your pond and fish up fi
 - Run the project in Unity 6
 - Build the project to Android
 - Run on Android device
-https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg
