@@ -19,20 +19,28 @@ public class Aquarium : MonoBehaviour
 
     [SerializeField][Range(0, 1)] float fishSpeedWeight;
     [SerializeField] GameObject fishPrefab;
+    [SerializeField] Vector3 fishRange = Vector3.one;
+    [SerializeField] Vector3 tankRotation = Vector3.zero;
 
     private void FixedUpdate()
     {
         foreach(var fish in fishList)
         {
             AquariumFish f = fish.GetComponent<AquariumFish>();
-            if (f.nextLocation == null || Vector3.Distance(fish.transform.position, f.nextLocation) <= 0.25f)
+            if (f.nextLocation == null || Vector3.Distance(fish.transform.localPosition, f.nextLocation) <= 0.25f)
             {
-                f.nextLocation = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5));
+                f.nextLocation = new Vector3(
+                    Random.Range(-fishRange.x, fishRange.x), 
+                    Random.Range(-fishRange.y, fishRange.y), 
+                    Random.Range(-fishRange.z, fishRange.z)
+                );
                 f.timer = 0;
             }
             f.timer += fishSpeedWeight * Time.deltaTime / f.data.weight;
-            fish.transform.position = Vector3.Slerp(fish.transform.position, f.nextLocation, f.timer);
+            fish.transform.localPosition = Vector3.Slerp(fish.transform.localPosition, f.nextLocation, f.timer);
         }
+
+        transform.rotation *= Quaternion.Euler(tankRotation.x, tankRotation.y, tankRotation.z);
     }
 
     public void LoadAquarium()
@@ -56,6 +64,16 @@ public class Aquarium : MonoBehaviour
         StartCoroutine("SpawnFishCoroutine");
     }
 
+    public void DeleteAquarium()
+    {
+        StopCoroutine("SpawnFishCoroutine");
+        for (int i = fishList.Count-1; i >= 0; i--)
+        {
+            Destroy(fishList[i]);
+        }
+        Destroy(gameObject);
+    }
+
     IEnumerator SpawnFishCoroutine()
     {
         foreach (var data in aquariumDataList.list)
@@ -63,6 +81,11 @@ public class Aquarium : MonoBehaviour
             yield return new WaitForSeconds(2);
             GameObject fish = Instantiate(fishPrefab, gameObject.transform);
             fish.GetComponent<AquariumFish>().setFish(data);
+            fish.GetComponent<AquariumFish>().nextLocation = new Vector3(
+                    Random.Range(-fishRange.x, fishRange.x),
+                    Random.Range(-fishRange.y, fishRange.y),
+                    Random.Range(-fishRange.z, fishRange.z)
+                );
             fishList.Add(fish);
         }
 

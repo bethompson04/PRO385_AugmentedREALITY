@@ -17,7 +17,7 @@ public class Fish : MonoBehaviour
 	
 	[SerializeField] Transform modelParent;
 	[SerializeField] GameObject boxingGloves;
-	[SerializeField] Slider clashBar;
+	public Slider clashBar;
 	
 
 	[Header("Fish Animation")]
@@ -52,7 +52,6 @@ public class Fish : MonoBehaviour
 	void Start()
     {
 		cam = Camera.main;
-		clashBar.value = 50;
 	}
 
     void Update()
@@ -145,6 +144,7 @@ public class Fish : MonoBehaviour
 	{
 		if (clashBar.value >= clashBar.maxValue)
 		{
+			newStateTransition = true;
 			fishState = FishState.END;
 			return;
 		}

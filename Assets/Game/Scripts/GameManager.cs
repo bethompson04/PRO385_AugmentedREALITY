@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        aquarium = gameObject.GetComponent<Aquarium>();
         aquarium.LoadAquarium();
     }
 
@@ -39,5 +38,17 @@ public class GameManager : MonoBehaviour
     {
         state = newState;
         Debug.Log(state);
+    }
+
+    public void getAquarium()
+    {
+        if (aquarium == null) aquarium = new Aquarium();
+        aquarium.LoadAquarium();
+        aquarium.SpawnFish();
+    }
+
+    public void deleteAquarium()
+    {
+        aquarium.DeleteAquarium();
     }
 }

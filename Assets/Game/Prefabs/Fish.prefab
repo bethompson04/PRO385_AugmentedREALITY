@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b08b923b41b7b54fa8c829a97447dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  modelParent: {fileID: 5300468174565576816}
+  modelParent: {fileID: 3446813725446305255}
   boxingGloves: {fileID: 1624203382725659946}
   clashBar: {fileID: 0}
   fishState: 0
