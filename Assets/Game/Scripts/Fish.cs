@@ -26,7 +26,7 @@ public class Fish : MonoBehaviour
 	[SerializeField] float lerpedRotationY;
 	[SerializeField] float rotationDamping = 5f;
 	[SerializeField] float lerpPositionDamping = 5f;
-	[SerializeField] float forwardDistance = 1.3f;
+	[SerializeField] float forwardDistance = 0.5f;
 
 
 	[Header("Fish Data")]
@@ -175,6 +175,7 @@ public class Fish : MonoBehaviour
 		{
 			fishSpawner.fishDataUI.SetActive(false);
 			Destroy(gameObject);
+			fishSpawner.fishSpawned = false;
 		}
 	}
 }

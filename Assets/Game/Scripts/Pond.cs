@@ -1,7 +1,5 @@
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PondManager : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +14,7 @@ public class PondManager : MonoBehaviour {
     void Start() {
         InteractManager.GetInstance().PondSpawned();
         rippleSpawnTimer = rippleTimer;
-        StartCoroutine(SpawnNewRipple(5.0f));
+        StartCoroutine(SpawnNewRipple(5.0f));   
     }
 
     // Update is called once per frame

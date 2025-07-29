@@ -13,6 +13,7 @@ public class FishSpawner : MonoBehaviour
 	[SerializeField] bool spawnOnStart;
 
 	private GameObject currentFish;
+	public bool fishSpawned = false;
 
 	private void Awake()
 	{
@@ -37,6 +38,7 @@ public class FishSpawner : MonoBehaviour
 
 		Fish fishScript = tempFish.GetComponent<Fish>();
 		currentFish = Instantiate(tempFish);
+		fishSpawned = true;
 	}
 
 	public void SetFishDataUI()
