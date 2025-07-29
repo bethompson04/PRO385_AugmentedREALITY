@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
         TITLE,
         CREATION,
         POND,
+        FISHING,
         FIGHT,
         AQUARIUM
     }
