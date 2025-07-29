@@ -1,5 +1,5 @@
 # Fish Fury
-![alt text](https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg) {: style="height:83px"}
+![alt text](https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg){: style="height:83px"}
 
 ## Made by:
 - Bennie Thompson
