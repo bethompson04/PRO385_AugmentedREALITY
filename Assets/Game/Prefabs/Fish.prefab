@@ -49,15 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   modelParent: {fileID: 3446813725446305255}
   boxingGloves: {fileID: 1624203382725659946}
-  clashBar: {fileID: 0}
   fishState: 0
   lerpedRotationY: 0
   rotationDamping: 5
   lerpPositionDamping: 5
-  forwardDistance: 2
-  attack: 3
-  defense: 5
+  forwardDistance: 0.4
+  fishName: joe
   weight: 0
+  description: the fish fellow
 --- !u!114 &4579974271822788965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +136,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5300468174565576816}
   - {fileID: 2144141079449540496}

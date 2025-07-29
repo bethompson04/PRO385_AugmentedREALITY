@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 
 public class Ripple : MonoBehaviour {
-    private float radius = 0.15f;       // Radius of the circle
+	private float radius = 0.15f;       // Radius of the circle
     private float lerpDuration = 2f;
     private float pauseTime = 1f;    // Time to pause at each point
 

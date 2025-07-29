@@ -9,11 +9,12 @@ public class RippleTapCheck : MonoBehaviour {
     private InputAction touchPressAction;
 
     private void Awake() {
-        playerInput = GetComponent<PlayerInput>();
-        touchPressAction = playerInput.actions["TouchPress"];
-        touchPositionAction = playerInput.actions["TouchPosition"];
-    }
-    void Update() {
+		playerInput = GetComponent<PlayerInput>();
+		touchPressAction = playerInput.actions["TouchPress"];
+		touchPositionAction = playerInput.actions["TouchPosition"];
+	}
+
+	void Update() {
         // Check for touch input (for mobile devices)
         if (touchPressAction.WasPerformedThisFrame()) {
             Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
@@ -26,6 +27,7 @@ public class RippleTapCheck : MonoBehaviour {
     }
 
     void HandleTap(Vector2 screenPosition) {
+        Debug.Log("tap");
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
         RaycastHit hit;
 
