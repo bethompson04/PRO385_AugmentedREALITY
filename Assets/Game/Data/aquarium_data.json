@@ -1,16 +1,46 @@
 {
-    "list": [
-        {
-            "name": "Goldfish",
-            "description": "It's a lil fishie!",
-            "modelPath": "goldfish.obj",
-            "weight":  0.5
-        },
-        {
-            "name": "Bass",
-            "description": "Big ol' boy!",
-            "modelPath": "bass.obj",
-            "weight":  2
-        }
-    ]
+  "list": [
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 0.5
+    },
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 0.75
+    },
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 1
+    },
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 2
+    },
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 3.5
+    },
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 1
+    },
+    {
+      "name": "Goldfish",
+      "description": "It's a lil fishie!",
+      "modelPath": "Goldfish/Mesh_Goldfish",
+      "weight": 0.25
+    }
+  ]
 }
