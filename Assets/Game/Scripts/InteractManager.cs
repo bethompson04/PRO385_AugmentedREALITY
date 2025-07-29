@@ -22,20 +22,22 @@ public class InteractManager : MonoBehaviour {
   }
     
   public void PondSpawned() {
-    Debug.Log("Pond Spawned, Creation disabled");
+    //Debug.Log("Pond Spawned, Creation disabled");
     gameManager.setState(GameManager.GameState.POND);
     objectSpawner.SetActive(false);
   }
 
   public void PondDestroyed() {
     GameObject.FindGameObjectWithTag("Pond").GetComponent<PondManager>().DestroyPond();
-    Debug.Log("Pond Destroyed, Creation Enabled");
+    //Debug.Log("Pond Destroyed, Creation Enabled");
     gameManager.setState(GameManager.GameState.CREATION);
     objectSpawner.SetActive(true);
   }
 
   public void RippleClikced() {
-    // Begin Ripple Behavior
+        // Begin Ripple Behavior
+        gameManager.setState(GameManager.GameState.FISHING);
+        Debug.Log("Yo I'm a fish\n Time to fish fish!");
   }
 
   public void BeginFishFury() {
