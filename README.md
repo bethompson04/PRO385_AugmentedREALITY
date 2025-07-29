@@ -1,5 +1,8 @@
 # Fish Fury
-![alt text](https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg){: style="height:83px"}
+<p align="center">
+  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg" width="200" height="150" />
+  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg" width="200" height="150" />
+</p>
 
 ## Made by:
 - Bennie Thompson
@@ -17,3 +20,4 @@
 - Run the project in Unity 6
 - Build the project to android
 - Run on android device
+https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg
