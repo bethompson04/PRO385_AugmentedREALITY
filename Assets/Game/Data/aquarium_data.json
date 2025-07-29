@@ -4,8 +4,6 @@
             "name": "Goldfish",
             "description": "It's a lil fishie!",
             "modelPath": "goldfish.obj",
-            "attack": 1,
-            "defense": 1,
             "weight":  0.5
         },
         {

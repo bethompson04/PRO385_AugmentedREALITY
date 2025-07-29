@@ -1,0 +1,13 @@
+{
+    "list": [
+        {
+          "name": "fish_name",
+          "description": "fish_description",
+          "modelPath": "fish_model",
+          "attack": 1,
+          "defense": 1,
+          "minWeight": 1,
+          "maxWeight": 1
+        }
+    ]
+}

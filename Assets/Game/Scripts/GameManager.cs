@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        aquarium = gameObject.GetComponent<Aquarium>();
+        //aquarium = gameObject.GetComponent<Aquarium>();
         aquarium.LoadAquarium();
     }
 
