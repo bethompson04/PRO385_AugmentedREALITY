@@ -1,4 +1,7 @@
 # Fish Fury
+[logo]: https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg "Screenshot 1"
+[logo]: https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg "Screenshot 2"
+
 ## Made by:
 - Bennie Thompson
 - Jayden Smith
