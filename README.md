@@ -1,7 +1,6 @@
 # Fish Fury
 <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg" width="100" height="100">
-![alt text](https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg "Screenshot 1")
-![alt text](https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg "Screenshot 2")
+<img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg" width="100" height="100">
 
 ## Made by:
 - Bennie Thompson
