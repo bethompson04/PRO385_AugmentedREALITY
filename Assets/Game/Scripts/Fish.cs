@@ -14,25 +14,29 @@ public class Fish : MonoBehaviour
 		LOSE,
 		NONE
     }
+
+	private FishSpawner fishSpawner = FishSpawner.instance;
 	
 	[SerializeField] Transform modelParent;
 	[SerializeField] GameObject boxingGloves;
-	public Slider clashBar;
 	
 
 	[Header("Fish Animation")]
-	[SerializeField] FishState fishState = FishState.SIDEWAYS_INTRO;
+	[SerializeField] public FishState fishState = FishState.SIDEWAYS_INTRO;
 	[SerializeField] float lerpedRotationY;
 	[SerializeField] float rotationDamping = 5f;
 	[SerializeField] float lerpPositionDamping = 5f;
 	[SerializeField] float forwardDistance = 1.3f;
-	
+
 
 	[Header("Fish Data")]
-	[SerializeField] float attack = 5;
-	[SerializeField] float defense = 10;
-	[SerializeField] float weight; // based off of min and max weight
-
+	public string fishName = "joe";
+	public float weight; // based off of min and max weight
+	public string description = "the fish fellow";
+	private float attack = 5;
+	private float defense = 10;
+	
+	private float lockout;
 	private bool newStateTransition = true;
 	private Camera cam;
 	private PlayerInput playerInput;
@@ -71,6 +75,8 @@ public class Fish : MonoBehaviour
 			case FishState.COMBAT:
 				if (newStateTransition)
 				{
+					fishSpawner.clashBar.gameObject.SetActive(true);
+
 					boxingGloves.SetActive(true);
 					StartCoroutine(LerpRotation(-90, 0f, 0.5f, FishState.NONE));
 					newStateTransition = false;
@@ -83,12 +89,17 @@ public class Fish : MonoBehaviour
 			case FishState.END:
 				if (newStateTransition)
 				{
+					fishSpawner.clashBar.gameObject.SetActive(false);
+					fishSpawner.fishDataUI.SetActive(true);
+					fishSpawner.SetFishDataUI();
+
 					boxingGloves.SetActive(false);
 					StartCoroutine(LerpRotation(0, -90f, 2f, FishState.NONE));
 					newStateTransition = false;
 				}
-				
 
+				
+				EndUpdate();
 				FaceCamera(lerpedRotationY);
 
 				break;
@@ -142,19 +153,28 @@ public class Fish : MonoBehaviour
 
 	void CombatUpdate()
 	{
-		if (clashBar.value >= clashBar.maxValue)
+		if (fishSpawner.clashBar.value >= fishSpawner.clashBar.maxValue)
 		{
 			newStateTransition = true;
 			fishState = FishState.END;
 			return;
 		}
 
-		clashBar.value -= defense * Time.deltaTime;
+		fishSpawner.clashBar.value -= defense * Time.deltaTime;
 
 		if (touchPressAction.WasPerformedThisFrame())
 		{
-			clashBar.value += attack;
+			fishSpawner.clashBar.value += attack;
 			print("wabam!");
+		}
+	}
+
+	void EndUpdate()
+	{
+		if (touchPressAction.WasPerformedThisFrame())
+		{
+			fishSpawner.fishDataUI.SetActive(false);
+			Destroy(gameObject);
 		}
 	}
 }
