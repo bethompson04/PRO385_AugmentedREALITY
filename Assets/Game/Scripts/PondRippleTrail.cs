@@ -1,3 +1,4 @@
+using Unity.Hierarchy;
 using UnityEngine;
 
 public class PondRippleTrail : MonoBehaviour
@@ -17,7 +18,8 @@ public class PondRippleTrail : MonoBehaviour
     {
         if(rippleTimer <= 0.0f) {
             rippleTimer = rippleRate;
-            Instantiate(ripplePrefab, new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z), transform.rotation);
+            Vector3 flatRotation = new Vector3(-90f, 0f, 0f);
+            Instantiate(ripplePrefab, new Vector3(transform.position.x, transform.position.y + 0.11f, transform.position.z), Quaternion.Euler(flatRotation));
         }
         rippleTimer -= Time.deltaTime;
     }
