@@ -63,13 +63,14 @@ MonoBehaviour:
   lerpPositionDamping: 5
   forwardDistance: 0.4
   fishData:
-    name: Goldy
-    description: Just a happy little fellow. He swims around all day.
-    modelPath: Goldfish/Mesh_Goldfish
+    name: Jeremiah Joseph
+    description: He misses his family of five very dearly. One day he will be reunited
+      with them.
+    modelPath: Pufferfish/NOVELO_PUFFERFISH
     attack: 5
-    defense: 10
-    minWeight: 0.05
-    maxWeight: 0.2
+    defense: 15
+    minWeight: 0.2
+    maxWeight: 0.4
 --- !u!114 &4579974271822788965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 7806100501455280664, guid: 562f9998acbad964d8bb12fc1dd71194,
+      objectReference: {fileID: -1580535799172915004, guid: 6d969114eed97f3418518641a247e269,
         type: 3}
     - target: {fileID: -693235956622753765, guid: 562f9998acbad964d8bb12fc1dd71194,
         type: 3}
@@ -660,7 +661,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -1485616040554582263, guid: 562f9998acbad964d8bb12fc1dd71194,
+      objectReference: {fileID: -2432090755550338912, guid: 6d969114eed97f3418518641a247e269,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

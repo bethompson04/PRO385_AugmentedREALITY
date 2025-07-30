@@ -1,28 +1,40 @@
 {
     "list": [
         {
-            "name": "Goldfish",
-            "description": "It's a lil fishie!",
+            "name": "Goldy",
+            "description": "Just a happy little fellow. He swims around all day.",
             "modelPath": "Goldfish/Mesh_Goldfish",
-            "weight": 0.5
+            "weight": 0.11957134306430817
         },
         {
-            "name": "Joe",
-            "description": "He's just a happy little guy :)",
+            "name": "Goldy",
+            "description": "Just a happy little fellow. He swims around all day.",
             "modelPath": "Goldfish/Mesh_Goldfish",
-            "weight": 0.20000000298023225
+            "weight": 0.0860389843583107
         },
         {
-            "name": "Joe",
-            "description": "He's just a happy little guy :)",
-            "modelPath": "Goldfish/Mesh_Goldfish",
-            "weight": 0.30000001192092898
+            "name": "Jeremiah Joseph",
+            "description": "He misses his family of five very dearly. One day he will be reunited with them.",
+            "modelPath": "Kingfish/Mesh_Kingfish",
+            "weight": 0.35878708958625796
         },
         {
-            "name": "Joe",
-            "description": "He's just a happy little guy :)",
+            "name": "Goldy",
+            "description": "Just a happy little fellow. He swims around all day.",
             "modelPath": "Goldfish/Mesh_Goldfish",
-            "weight": 0.0
+            "weight": 0.15286830067634583
+        },
+        {
+            "name": "Jeremiah Joseph",
+            "description": "He misses his family of five very dearly. One day he will be reunited with them.",
+            "modelPath": "Kingfish/Mesh_Kingfish",
+            "weight": 0.34927013516426089
+        },
+        {
+            "name": "Jeremiah Joseph",
+            "description": "He misses his family of five very dearly. One day he will be reunited with them.",
+            "modelPath": "Salmon/Mesh_Fish",
+            "weight": 0.23813080787658692
         }
     ]
 }

@@ -47,7 +47,13 @@ public class Fish : MonoBehaviour
 	private PlayerInput playerInput;
 	private InputAction touchPositionAction;
 	private InputAction touchPressAction;
+	private float endTouchCooldown = 1.0f;
+	private float endTouchTimer = 0f;
+	private bool canTouchInEndState = false;
+
+
 	//private bool isPressed;
+	private Animator animator;
 
 	private void Awake()
 	{
@@ -60,6 +66,7 @@ public class Fish : MonoBehaviour
 
 	void Start()
     {
+		animator = GetComponent<Animator>();
 		cam = Camera.main;
 
 		audioSource = GetComponent<AudioSource>();
@@ -102,8 +109,10 @@ public class Fish : MonoBehaviour
 					boxingGloves.SetActive(true);
 					StartCoroutine(LerpRotation(-90, 0f, 0.5f, FishState.NONE));
 					newStateTransition = false;
-                    audioSource.clip = clipList[1];
-                }
+					
+					audioSource.clip = clipList[1];
+					animator.SetBool("Combat", true);
+				}
 
 				CombatUpdate();
 				FaceCamera(lerpedRotationY);
@@ -124,7 +133,11 @@ public class Fish : MonoBehaviour
 					audioSource.Play();
 
 					GameManager.instance.setState(GameManager.GameState.POND);
-                }
+					animator.SetBool("Combat", false);
+
+					endTouchTimer = 0f;
+					canTouchInEndState = false;
+				}
 
 				
 				EndUpdate();

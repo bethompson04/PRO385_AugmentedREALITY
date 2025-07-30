@@ -12,7 +12,7 @@
         {
           "name": "Jeremiah Joseph",
           "description": "He misses his family of five very dearly. One day he will be reunited with them.",
-          "modelPath": "Pufferfish/NOVELO_PUFFERFISH",
+          "modelPath": "Salmon/Mesh_Fish",
           "attack": 5,
           "defense": 15,
           "minWeight": 0.2,
@@ -21,7 +21,7 @@
         {
           "name": "Lanky",
           "description": "Uses their long body to wrap around opponents putting them into an armbar.",
-          "modelPath": "Goldfish/Mesh_Goldfish",
+          "modelPath": "Kingfish/Mesh_Kingfish",
           "attack": 8,
           "defense": 10,
           "minWeight": 0.05,
