@@ -16,7 +16,7 @@ public class RippleTapCheck : MonoBehaviour {
 
 	void Update() {
         // Check for touch input (for mobile devices)
-        if (touchPressAction.WasPerformedThisFrame()) {
+        if (touchPressAction.WasPerformedThisFrame() && GameManager.instance.state != GameManager.GameState.FIGHT) {
             Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
             HandleTap(screenPosition);
         }

@@ -1,5 +1,17 @@
 using UnityEngine;
 
+[System.Serializable]
+public struct PondFishData
+{
+    public string name;
+    public string description;
+    public string modelPath;
+    public int attack;
+    public int defense;
+    public float minWeight;
+    public float maxWeight;
+}
+
 public class GameManager : MonoBehaviour
 {
     public enum GameState
@@ -16,6 +28,7 @@ public class GameManager : MonoBehaviour
     public GameState state;
 
     public Aquarium aquarium;
+    public DataList<PondFishData> pondDataList;
 
     public void Awake()
     {
@@ -31,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        pondDataList = SystemIO.LoadFile<PondFishData>("pond_data");
         aquarium.LoadAquarium();
     }
 
@@ -49,6 +63,6 @@ public class GameManager : MonoBehaviour
 
     public void deleteAquarium()
     {
-        aquarium.DeleteAquarium();
+        aquarium.DeleteFish();
     }
 }

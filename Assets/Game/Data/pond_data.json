@@ -6,26 +6,26 @@
           "modelPath": "Goldfish/Mesh_Goldfish",
           "attack": 5,
           "defense": 10,
-          "minWeight": 0.0005,
-          "maxWeight": 0.002
+          "minWeight": 0.05,
+          "maxWeight": 0.2
         },
         {
           "name": "Jeremiah Joseph",
           "description": "He misses his family of five very dearly. One day he will be reunited with them.",
-          "modelPath": "Goldfish/Mesh_Goldfish",
+          "modelPath": "Pufferfish/NOVELO_PUFFERFISH",
           "attack": 5,
           "defense": 15,
-          "minWeight": 0.0005,
-          "maxWeight": 0.002
+          "minWeight": 0.2,
+          "maxWeight": 0.4
         },
         {
           "name": "Lanky",
           "description": "Uses their long body to wrap around opponents putting them into an armbar.",
           "modelPath": "Goldfish/Mesh_Goldfish",
-          "attack": 2,
+          "attack": 8,
           "defense": 10,
-          "minWeight": 0.0005,
-          "maxWeight": 0.002
+          "minWeight": 0.05,
+          "maxWeight": 0.2
         }
     ]
 }

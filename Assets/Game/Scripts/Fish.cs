@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -19,9 +20,15 @@ public class Fish : MonoBehaviour
 	
 	[SerializeField] Transform modelParent;
 	[SerializeField] GameObject boxingGloves;
-	
+	[SerializeField] AudioClip[] clipList;
+	[SerializeField] AudioSource fightStartSource;
 
-	[Header("Fish Animation")]
+	private AudioSource audioSource;
+
+    [SerializeField] float victoryLength = 2f;
+    private float endTimer = 0;
+
+    [Header("Fish Animation")]
 	[SerializeField] public FishState fishState = FishState.SIDEWAYS_INTRO;
 	
 	[SerializeField] float lerpedRotationY;
@@ -31,9 +38,8 @@ public class Fish : MonoBehaviour
 
 
 	[Header("Fish Data")]
-	[SerializeField] public AquariumFishData fishData;
-	private float attack = 5;
-	private float defense = 10;
+	[SerializeField] public PondFishData fishData;
+	private float weight = 0;
 	
 	private float lockout;
 	private bool newStateTransition = true;
@@ -55,7 +61,21 @@ public class Fish : MonoBehaviour
 	void Start()
     {
 		cam = Camera.main;
+
+		audioSource = GetComponent<AudioSource>();
 	}
+
+	public void setFish(PondFishData fish)
+	{
+		fishData = fish;
+        var model = Resources.Load<Mesh>(fishData.modelPath);
+        var material = Resources.Load<Material>(fishData.modelPath);
+        if (model != null && material != null)
+        {
+            gameObject.GetComponentInChildren<MeshFilter>().mesh = model;
+            gameObject.GetComponentInChildren<MeshRenderer>().material = material;
+        }
+    }
 
     void Update()
     {
@@ -66,7 +86,9 @@ public class Fish : MonoBehaviour
 				{
 					StartCoroutine(LerpRotation(0, -90f, 4f, FishState.COMBAT));
 					newStateTransition = false;
-				}
+                    audioSource.clip = clipList[0];
+                    audioSource.Play();
+                }
 
 				FaceCamera(lerpedRotationY);
 
@@ -74,12 +96,14 @@ public class Fish : MonoBehaviour
 			case FishState.COMBAT:
 				if (newStateTransition)
 				{
+					GameManager.instance.setState(GameManager.GameState.FIGHT);
 					fishSpawner.clashBar.gameObject.SetActive(true);
-
+					fightStartSource.Play();
 					boxingGloves.SetActive(true);
 					StartCoroutine(LerpRotation(-90, 0f, 0.5f, FishState.NONE));
 					newStateTransition = false;
-				}
+                    audioSource.clip = clipList[1];
+                }
 
 				CombatUpdate();
 				FaceCamera(lerpedRotationY);
@@ -90,16 +114,23 @@ public class Fish : MonoBehaviour
 				{
 					fishSpawner.clashBar.gameObject.SetActive(false);
 					fishSpawner.fishDataUI.SetActive(true);
-					fishSpawner.SetFishDataUI();
+                    weight = UnityEngine.Random.Range(fishData.minWeight, fishData.maxWeight);
+                    fishSpawner.SetFishDataUI(weight);
 
 					boxingGloves.SetActive(false);
 					StartCoroutine(LerpRotation(0, -90f, 2f, FishState.NONE));
 					newStateTransition = false;
-				}
+                    audioSource.clip = clipList[2];
+					audioSource.Play();
+
+					GameManager.instance.setState(GameManager.GameState.POND);
+                }
 
 				
 				EndUpdate();
 				FaceCamera(lerpedRotationY);
+
+				endTimer += Time.deltaTime;
 
 				break;
 			case FishState.LOSE:
@@ -157,20 +188,27 @@ public class Fish : MonoBehaviour
 			return;
 		}
 
-		fishSpawner.clashBar.value -= defense * Time.deltaTime;
+		fishSpawner.clashBar.value -= fishData.defense * Time.deltaTime;
 
-		if (touchPressAction.WasPerformedThisFrame())
+        if (touchPressAction.WasPerformedThisFrame())
 		{
-			fishSpawner.clashBar.value += attack;
-			print("wabam!");
+			fishSpawner.clashBar.value += fishData.attack;
+			audioSource.Play();
+			//print("wabam!");
 		}
 	}
 
 	void EndUpdate()
 	{
-		if (touchPressAction.WasPerformedThisFrame())
+		if (touchPressAction.WasPerformedThisFrame() && endTimer >= victoryLength)
 		{
-			fishSpawner.EndOfFish(fishData);
+            AquariumFishData data = new AquariumFishData();
+            data.name = fishData.name;
+            data.description = fishData.description;
+            data.modelPath = fishData.modelPath;
+            data.weight = weight;
+
+            fishSpawner.EndOfFish(data);
 			Destroy(gameObject);
 		}
 	}

@@ -38,6 +38,7 @@ public class FishSpawner : MonoBehaviour
 		//have fish jump facing sideways from camera
 
 		Fish fishScript = tempFish.GetComponent<Fish>();
+		fishScript.setFish(GameManager.instance.pondDataList.list[UnityEngine.Random.Range(0, GameManager.instance.pondDataList.list.Count)]);
 		currentFish = Instantiate(tempFish);
 		fishSpawned = true;
 	}
@@ -46,12 +47,13 @@ public class FishSpawner : MonoBehaviour
 	{
 		aquarium.AddFish(aquariumFishData);
 		aquarium.SaveAquarium();
+		aquarium.LoadAquarium();
 
 		fishDataUI.SetActive(false);
 		fishSpawned = false;
 	}
 
-	public void SetFishDataUI()
+	public void SetFishDataUI(float weight)
 	{
 		TMP_Text nameText = fishDataUI.GetNamedChild("Name").GetComponent<TMP_Text>();
 		TMP_Text weightText = fishDataUI.GetNamedChild("Weight").GetComponent<TMP_Text>();
@@ -59,7 +61,7 @@ public class FishSpawner : MonoBehaviour
 
 		Fish fishScript = currentFish.GetComponent<Fish>();
 		nameText.text = fishScript.fishData.name;
-		weightText.text = "Weight: " + fishScript.fishData.weight.ToString();
+		weightText.text = "Weight: " + weight.ToString();
 		descriptionText.text = fishScript.fishData.description;
 	}
 }

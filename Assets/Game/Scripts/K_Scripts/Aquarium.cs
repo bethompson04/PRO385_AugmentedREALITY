@@ -79,13 +79,14 @@ public class Aquarium : MonoBehaviour
         StartCoroutine("SpawnFishCoroutine");
     }
 
-    public void DeleteAquarium()
+    public void DeleteFish()
     {
         StopCoroutine("SpawnFishCoroutine");
         for (int i = fishList.Count-1; i >= 0; i--)
         {
             Destroy(fishList[i]);
         }
+        fishList = new List<GameObject>();
         //Destroy(gameObject);
     }
 
@@ -116,16 +117,27 @@ public class Aquarium : MonoBehaviour
 		gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, camPos + Camera.main.transform.forward * forwardDistance, Time.deltaTime * lerpPositionDamping);
 	}
 
-    public void SetHoverTrue()
+    public void SetHover()
     {
-        model.SetActive(true);
-        viewButton.SetActive(false);
-		continueButton.SetActive(true);
-        SpawnFish();
-        GameManager.instance.state = GameManager.GameState.AQUARIUM;
-        InteractManager.GetInstance().objectSpawner.SetActive(false);
+        if (model.activeSelf == false)
+        {
+            model.SetActive(true);
+            SpawnFish();
+            GameManager.instance.state = GameManager.GameState.AQUARIUM;
+            InteractManager.GetInstance().objectSpawner.SetActive(false);
 
-		moveToInFrontCamera = true;
+            moveToInFrontCamera = true;
+        } 
+        else
+        {
+            model.SetActive(false);
+            DeleteFish();
+            GameManager.instance.state = GameManager.GameState.CREATION;
+            InteractManager.GetInstance().objectSpawner.SetActive(true);
+
+            moveToInFrontCamera = false;
+        }
+        
     }
 
 	public void SetHoverFalse()
@@ -133,7 +145,7 @@ public class Aquarium : MonoBehaviour
 		model.SetActive(false);
 		viewButton.SetActive(true);
 		continueButton.SetActive(false);
-        DeleteAquarium();
+        DeleteFish();
 		GameManager.instance.state = GameManager.GameState.CREATION;
 		InteractManager.GetInstance().objectSpawner.SetActive(true);
 
