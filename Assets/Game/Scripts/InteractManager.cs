@@ -55,8 +55,4 @@ public class InteractManager : MonoBehaviour
 		gameManager.setState(GameManager.GameState.FIGHT);
 	}
 
-
-
-
-
 }

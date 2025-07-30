@@ -21,8 +21,15 @@ public class Aquarium : MonoBehaviour
     [SerializeField] GameObject fishPrefab;
     [SerializeField] Vector3 fishRange = Vector3.one;
     [SerializeField] Vector3 tankRotation = Vector3.zero;
+	[SerializeField] float forwardDistance = 0.5f;
+	[SerializeField] float lerpPositionDamping = 5f;
+	[SerializeField] GameObject viewButton;
+	[SerializeField] GameObject continueButton;
+    [SerializeField] GameObject model;
 
-    private void FixedUpdate()
+    private bool moveToInFrontCamera = false;
+
+	private void FixedUpdate()
     {
         foreach(var fish in fishList)
         {
@@ -43,7 +50,15 @@ public class Aquarium : MonoBehaviour
         transform.rotation *= Quaternion.Euler(tankRotation.x, tankRotation.y, tankRotation.z);
     }
 
-    public void LoadAquarium()
+	private void Update()
+	{
+        if (moveToInFrontCamera)
+        {
+            HoverInFrontCamera();
+        }
+	}
+
+	public void LoadAquarium()
     {
         aquariumDataList = SystemIO.LoadFile<AquariumFishData>("aquarium_data");
     }
@@ -71,7 +86,7 @@ public class Aquarium : MonoBehaviour
         {
             Destroy(fishList[i]);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     IEnumerator SpawnFishCoroutine()
@@ -91,4 +106,37 @@ public class Aquarium : MonoBehaviour
 
         yield return null;
     }
+
+	private void HoverInFrontCamera()
+	{
+		Vector3 camPos = Camera.main.transform.position;
+        //camPos = new Vector3(camPos.x, camPos.y + 0.5f, camPos.z);
+		Vector3 ourPos = gameObject.transform.position;
+
+		gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, camPos + Camera.main.transform.forward * forwardDistance, Time.deltaTime * lerpPositionDamping);
+	}
+
+    public void SetHoverTrue()
+    {
+        model.SetActive(true);
+        viewButton.SetActive(false);
+		continueButton.SetActive(true);
+        SpawnFish();
+        GameManager.instance.state = GameManager.GameState.AQUARIUM;
+        InteractManager.GetInstance().objectSpawner.SetActive(false);
+
+		moveToInFrontCamera = true;
+    }
+
+	public void SetHoverFalse()
+	{
+		model.SetActive(false);
+		viewButton.SetActive(true);
+		continueButton.SetActive(false);
+        DeleteAquarium();
+		GameManager.instance.state = GameManager.GameState.CREATION;
+		InteractManager.GetInstance().objectSpawner.SetActive(true);
+
+		moveToInFrontCamera = false;
+	}
 }

@@ -54,9 +54,11 @@ MonoBehaviour:
   rotationDamping: 5
   lerpPositionDamping: 5
   forwardDistance: 0.4
-  fishName: joe
-  weight: 0
-  description: the fish fellow
+  fishData:
+    name: Joe
+    description: He's just a happy little guy :)
+    modelPath: Goldfish/Mesh_Goldfish
+    weight: 0
 --- !u!114 &4579974271822788965
 MonoBehaviour:
   m_ObjectHideFlags: 0

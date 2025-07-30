@@ -10,6 +10,7 @@ public class FishSpawner : MonoBehaviour
 	[SerializeField] public GameObject tempFish;
 	[SerializeField] public GameObject fishDataUI;
 	[SerializeField] public Slider clashBar;
+	[SerializeField] public Aquarium aquarium;
 	//[SerializeField] bool spawnOnStart;
 
 	private GameObject currentFish;
@@ -41,15 +42,24 @@ public class FishSpawner : MonoBehaviour
 		fishSpawned = true;
 	}
 
+	public void EndOfFish(AquariumFishData aquariumFishData)
+	{
+		aquarium.AddFish(aquariumFishData);
+		aquarium.SaveAquarium();
+
+		fishDataUI.SetActive(false);
+		fishSpawned = false;
+	}
+
 	public void SetFishDataUI()
 	{
 		TMP_Text nameText = fishDataUI.GetNamedChild("Name").GetComponent<TMP_Text>();
 		TMP_Text weightText = fishDataUI.GetNamedChild("Weight").GetComponent<TMP_Text>();
 		TMP_Text descriptionText = fishDataUI.GetNamedChild("Description").GetComponent<TMP_Text>();
 
-		Fish fishData = currentFish.GetComponent<Fish>();
-		nameText.text = fishData.fishName;
-		weightText.text = "Weight: " + fishData.weight.ToString();
-		descriptionText.text = fishData.description;
+		Fish fishScript = currentFish.GetComponent<Fish>();
+		nameText.text = fishScript.fishData.name;
+		weightText.text = "Weight: " + fishScript.fishData.weight.ToString();
+		descriptionText.text = fishScript.fishData.description;
 	}
 }

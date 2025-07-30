@@ -23,6 +23,7 @@ public class Fish : MonoBehaviour
 
 	[Header("Fish Animation")]
 	[SerializeField] public FishState fishState = FishState.SIDEWAYS_INTRO;
+	
 	[SerializeField] float lerpedRotationY;
 	[SerializeField] float rotationDamping = 5f;
 	[SerializeField] float lerpPositionDamping = 5f;
@@ -30,9 +31,7 @@ public class Fish : MonoBehaviour
 
 
 	[Header("Fish Data")]
-	public string fishName = "joe";
-	public float weight; // based off of min and max weight
-	public string description = "the fish fellow";
+	[SerializeField] public AquariumFishData fishData;
 	private float attack = 5;
 	private float defense = 10;
 	
@@ -135,7 +134,6 @@ public class Fish : MonoBehaviour
             t = t * t * (3f - 2f * t);
 			
 			lerpedRotationY = Mathf.LerpAngle(start, end, t);
-			Debug.Log(lerpedRotationY);
 
             timeElapsed += Time.deltaTime;
             yield return null;
@@ -146,7 +144,6 @@ public class Fish : MonoBehaviour
 		if (endState != FishState.NONE)
 		{
 			fishState = endState;
-			print("true!");
 			newStateTransition = true;
 		}
 	}
@@ -173,9 +170,8 @@ public class Fish : MonoBehaviour
 	{
 		if (touchPressAction.WasPerformedThisFrame())
 		{
-			fishSpawner.fishDataUI.SetActive(false);
+			fishSpawner.EndOfFish(fishData);
 			Destroy(gameObject);
-			fishSpawner.fishSpawned = false;
 		}
 	}
 }
