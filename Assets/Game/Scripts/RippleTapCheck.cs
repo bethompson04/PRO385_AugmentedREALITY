@@ -27,11 +27,13 @@ public class RippleTapCheck : MonoBehaviour {
     }
 
     void HandleTap(Vector2 screenPosition) {
-        Debug.Log("tap");
+		int layerMask = ~LayerMask.GetMask("Pond"); //invert mask to exclude Pond layer
+
+		Debug.Log("tap");
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit)) {
+        if (Physics.Raycast(ray, out hit, 100, layerMask)) {
             // A collider was hit
             Debug.Log("Tapped on: " + hit.collider.gameObject.name);
 

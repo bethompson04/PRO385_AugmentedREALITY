@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4525068483317695792}
   - component: {fileID: 6014730162507889896}
   - component: {fileID: 238226796529987909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pond
   m_TagString: Pond
   m_Icon: {fileID: 0}
