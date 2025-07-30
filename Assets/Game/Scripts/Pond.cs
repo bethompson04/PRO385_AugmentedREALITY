@@ -39,7 +39,13 @@ public class PondManager : MonoBehaviour {
     IEnumerator SpawnNewRipple(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Spawned New Ripple!");
-        if (currentRipple == null) currentRipple = Instantiate(ripplePrefab, gameObject.transform);
+        
+        if (currentRipple == null)
+        {
+			currentRipple = Instantiate(ripplePrefab, gameObject.transform);
+            currentRipple.transform.position = new Vector3(currentRipple.transform.position.x, currentRipple.transform.position.y - 0.1f, currentRipple.transform.position.z);
+		}
+
         rippleSpawnTimer = rippleTimer;
         yield break;
     }

@@ -10,7 +10,7 @@ public class FishSpawner : MonoBehaviour
 	[SerializeField] public GameObject tempFish;
 	[SerializeField] public GameObject fishDataUI;
 	[SerializeField] public Slider clashBar;
-	[SerializeField] bool spawnOnStart;
+	//[SerializeField] bool spawnOnStart;
 
 	private GameObject currentFish;
 	public bool fishSpawned = false;
@@ -26,7 +26,7 @@ public class FishSpawner : MonoBehaviour
 		fishDataUI.SetActive(false);
 		clashBar.gameObject.SetActive(false);
 		clashBar.value = 50;
-		if (spawnOnStart) SpawnFish();
+		//if (spawnOnStart) SpawnFish();
     }
 
 	public void SpawnFish()
