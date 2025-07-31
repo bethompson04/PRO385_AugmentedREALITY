@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         aquarium.AddFish(data);
         Destroy(currentFish);
-        aquarium.SaveAquarium();
+        //aquarium.SaveAquarium();
 
         fishDataUI.SetActive(false);
         setState(1);
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         clashBar.value = 50;
 
         currentFish = Instantiate(fishPrefab);
-        currentFish.GetComponent<PondFish>().setFish(pondFishList.list[0]);
+        currentFish.GetComponent<PondFish>().setFish(pondFishList.list[Random.Range(0, pondFishList.list.Count)]);
         Debug.Log("Fish created");
 
         //PondFish fishScript = fishPrefab.GetComponent<PondFish>();

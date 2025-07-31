@@ -1,0 +1,10 @@
+{
+    "list": [
+        {
+            "name": "Goldy",
+            "description": "Just a happy little fellow. He swims around all day.",
+            "modelPath": "Goldfish/Mesh_Goldfish",
+            "weight": 0.11957134306430817
+        }
+    ]
+}

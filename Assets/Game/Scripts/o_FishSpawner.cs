@@ -46,7 +46,7 @@ public class o_FishSpawner : MonoBehaviour
 	public void EndOfFish(AquariumFishData aquariumFishData)
 	{
 		aquarium.AddFish(aquariumFishData);
-		aquarium.SaveAquarium();
+		//aquarium.SaveAquarium();
 		aquarium.LoadAquarium();
 
 		fishDataUI.SetActive(false);

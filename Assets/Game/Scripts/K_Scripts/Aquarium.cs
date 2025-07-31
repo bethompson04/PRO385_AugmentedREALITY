@@ -30,6 +30,7 @@ public class Aquarium : MonoBehaviour
     private void Start()
     {
         aquariumDataList = new DataList<AquariumFishData>();
+        LoadAquarium();
     }
 
     private void FixedUpdate()
@@ -101,6 +102,7 @@ public class Aquarium : MonoBehaviour
         {
             yield return new WaitForSeconds(2);
             GameObject fish = Instantiate(fishPrefab, gameObject.transform);
+            Debug.Log(fish.ToString());
             fish.GetComponent<AquariumFish>().setFish(data);
             fish.GetComponent<AquariumFish>().nextLocation = new Vector3(
                     Random.Range(-fishRange.x, fishRange.x),
