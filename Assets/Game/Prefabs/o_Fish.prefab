@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7625740866421699296}
-  - component: {fileID: -2643958979036190808}
+  - component: {fileID: 5550850966047032366}
+  - component: {fileID: 4579974271822788965}
   - component: {fileID: 8490525511505634623}
   - component: {fileID: -6785960904758835864}
   - component: {fileID: 5077569409064063992}
   m_Layer: 0
-  m_Name: Fish
+  m_Name: o_Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +37,7 @@ Transform:
   - {fileID: 3446813725446305255}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2643958979036190808
+--- !u!114 &5550850966047032366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +46,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3367534095145264473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943705d9b8871764dbf78c43344888ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b08b923b41b7b54fa8c829a97447dc9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PondFish
+  m_EditorClassIdentifier: '::'
   modelParent: {fileID: 3446813725446305255}
   boxingGloves: {fileID: 1624203382725659946}
   clipList:
@@ -55,7 +56,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e6763e884aab113498f9292b8f1f20b7, type: 3}
   - {fileID: 8300000, guid: e255ac2df4ba4a74d89516fc7fadcc17, type: 3}
   fightStartSource: {fileID: 5077569409064063992}
-  audioSource: {fileID: -6785960904758835864}
   victoryLength: 1.5
   fishState: 0
   lerpedRotationY: 0
@@ -63,14 +63,45 @@ MonoBehaviour:
   lerpPositionDamping: 5
   forwardDistance: 0.4
   fishData:
-    name: Lanky
-    description: Uses their long body to wrap around opponents putting them into
-      an armbar.
-    modelPath: Kingfish/Mesh_Kingfish
-    attack: 8
-    defense: 10
-    minWeight: 0.05
-    maxWeight: 0.2
+    name: Jeremiah Joseph
+    description: He misses his family of five very dearly. One day he will be reunited
+      with them.
+    modelPath: Pufferfish/NOVELO_PUFFERFISH
+    attack: 5
+    defense: 15
+    minWeight: 0.2
+    maxWeight: 0.4
+--- !u!114 &4579974271822788965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367534095145264473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: e6c2c1161c22e8a499e4c2145af4ebb9,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Touch
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!95 &8490525511505634623
 Animator:
   serializedVersion: 7
@@ -609,7 +640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 7806100501455280664, guid: f6b076c3f2dad3a4481a9832780f700d,
+      objectReference: {fileID: -1580535799172915004, guid: 6d969114eed97f3418518641a247e269,
         type: 3}
     - target: {fileID: -693235956622753765, guid: 562f9998acbad964d8bb12fc1dd71194,
         type: 3}
@@ -630,7 +661,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -8035794525684541944, guid: f6b076c3f2dad3a4481a9832780f700d,
+      objectReference: {fileID: -2432090755550338912, guid: 6d969114eed97f3418518641a247e269,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class Ripple : MonoBehaviour {
+public class o_Ripple : MonoBehaviour {
     [SerializeField] AnimationCurve easeCurve;
 
 	private float radius = 0.15f;       // Radius of the circle

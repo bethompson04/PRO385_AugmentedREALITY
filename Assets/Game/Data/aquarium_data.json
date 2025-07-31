@@ -35,6 +35,18 @@
             "description": "He misses his family of five very dearly. One day he will be reunited with them.",
             "modelPath": "Salmon/Mesh_Fish",
             "weight": 0.23813080787658692
+        },
+        {
+            "name": "Lanky",
+            "description": "Uses their long body to wrap around opponents putting them into an armbar.",
+            "modelPath": "Kingfish/Mesh_Kingfish",
+            "weight": 0.17137983441352845
+        },
+        {
+            "name": "Lanky",
+            "description": "Uses their long body to wrap around opponents putting them into an armbar.",
+            "modelPath": "Kingfish/Mesh_Kingfish",
+            "weight": 0.09121598303318024
         }
     ]
 }

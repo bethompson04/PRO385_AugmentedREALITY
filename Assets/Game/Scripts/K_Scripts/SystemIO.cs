@@ -16,7 +16,7 @@ public static class SystemIO
     {
         string json = JsonUtility.ToJson(dataList, true);
 
-        using (StreamWriter writer = new StreamWriter(Application.dataPath + "\\Game\\Data\\" + fileName + ".json"))
+        using (StreamWriter writer = new StreamWriter("Assets\\Game\\Data\\" + fileName + ".json"))
         {
             writer.Write(json);
         }
@@ -28,7 +28,7 @@ public static class SystemIO
 
         try
         {
-            using (StreamReader reader = new StreamReader(Application.dataPath + "\\Game\\Data\\" + fileName + ".json"))
+            using (StreamReader reader = new StreamReader("Assets\\Game\\Data\\" + fileName + ".json"))
             {
                 json = reader.ReadToEnd();
             }

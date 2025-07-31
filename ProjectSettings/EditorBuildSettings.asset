@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Game/Scenes/JaydenScene.unity
     guid: cb837eb72e40e7c4c8abf2dfb9912aa6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/main_scene.unity
     guid: 2e86874665aeb5d40930a91b2bd6e7e4
+  - enabled: 1
+    path: Assets/Scenes/main.unity
+    guid: 85a64ec2f514a0146b1e9ebffb4a3613
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

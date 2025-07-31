@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7408932070704208241}
   - component: {fileID: 3079651369058376651}
+  - component: {fileID: 2828080160784936693}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -40,13 +41,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498910915909873192}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 180d901a14e656b428ea10ac3f281d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleRotate
   rotationSpeed: 15
   zoomDuration: 0.5
+  playerInput: {fileID: 0}
+--- !u!114 &2828080160784936693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498910915909873192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce02e59b5f6fda46bf54bf194982bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleScreen
   playerInput: {fileID: 0}
 --- !u!1 &1476941284047322346
 GameObject:

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 [System.Serializable]
@@ -24,12 +23,16 @@ public class Aquarium : MonoBehaviour
 	[SerializeField] float forwardDistance = 0.5f;
 	[SerializeField] float lerpPositionDamping = 5f;
 	[SerializeField] GameObject viewButton;
-	[SerializeField] GameObject continueButton;
     [SerializeField] GameObject model;
 
     private bool moveToInFrontCamera = false;
 
-	private void FixedUpdate()
+    private void Start()
+    {
+        aquariumDataList = new DataList<AquariumFishData>();
+    }
+
+    private void FixedUpdate()
     {
         foreach(var fish in fishList)
         {
@@ -70,7 +73,9 @@ public class Aquarium : MonoBehaviour
 
     public void AddFish(AquariumFishData data)
     {
+        Debug.Log(data.name);
         aquariumDataList.list.Add(data);
+        Debug.Log("Fish added to aquarium");
     }
 
     public void SpawnFish()
@@ -123,8 +128,8 @@ public class Aquarium : MonoBehaviour
         {
             model.SetActive(true);
             SpawnFish();
-            GameManager.instance.state = GameManager.GameState.AQUARIUM;
-            InteractManager.GetInstance().objectSpawner.SetActive(false);
+            GameManager.instance.setState(3);
+            GameManager.instance.objectSpawner.SetActive(false);
 
             moveToInFrontCamera = true;
         } 
@@ -132,23 +137,11 @@ public class Aquarium : MonoBehaviour
         {
             model.SetActive(false);
             DeleteFish();
-            GameManager.instance.state = GameManager.GameState.CREATION;
-            InteractManager.GetInstance().objectSpawner.SetActive(true);
+            GameManager.instance.setState(1);
+            GameManager.instance.objectSpawner.SetActive(true);
 
             moveToInFrontCamera = false;
         }
         
     }
-
-	public void SetHoverFalse()
-	{
-		model.SetActive(false);
-		viewButton.SetActive(true);
-		continueButton.SetActive(false);
-        DeleteFish();
-		GameManager.instance.state = GameManager.GameState.CREATION;
-		InteractManager.GetInstance().objectSpawner.SetActive(true);
-
-		moveToInFrontCamera = false;
-	}
 }

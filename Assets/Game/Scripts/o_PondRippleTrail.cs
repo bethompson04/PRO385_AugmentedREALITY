@@ -1,7 +1,7 @@
 using Unity.Hierarchy;
 using UnityEngine;
 
-public class PondRippleTrail : MonoBehaviour
+public class o_PondRippleTrail : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] GameObject ripplePrefab;

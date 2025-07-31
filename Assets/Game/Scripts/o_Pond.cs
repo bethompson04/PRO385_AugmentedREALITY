@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PondManager : MonoBehaviour {
+public class o_PondManager : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] GameObject ripplePrefab;
     [SerializeField] float rippleTimer = 60.0f;
@@ -12,7 +12,7 @@ public class PondManager : MonoBehaviour {
     //public Rarity rippleRarity
 
     void Start() {
-        InteractManager.GetInstance().PondSpawned();
+        o_InteractManager.GetInstance().PondSpawned();
         rippleSpawnTimer = rippleTimer;
         StartCoroutine(SpawnNewRipple(5.0f));   
     }

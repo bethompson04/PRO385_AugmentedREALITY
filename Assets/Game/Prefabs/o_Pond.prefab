@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2999073890473863320}
-  - component: {fileID: 8147942163902629110}
+  - component: {fileID: -8353960863549316554}
   - component: {fileID: 4525068483317695792}
   - component: {fileID: 6014730162507889896}
   - component: {fileID: 238226796529987909}
   m_Layer: 6
-  m_Name: Pond
+  m_Name: o_Pond
   m_TagString: Pond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ Transform:
   - {fileID: 5479961892274867680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
---- !u!114 &8147942163902629110
+--- !u!114 &-8353960863549316554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,11 +60,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6747915086452137592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d05303706e4d7a3438c408f218f4411e, type: 3}
+  m_Script: {fileID: 11500000, guid: dd646fb98a3338d4abd50d757a70b198, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pond
-  pondFishPrefab: {fileID: 924837591717271494, guid: ffc2f29eb8beae84f917065a3251144e,
+  m_EditorClassIdentifier: '::'
+  ripplePrefab: {fileID: 924837591717271494, guid: 8b2dffd9ea85143459946d3fdc3e829d,
     type: 3}
+  rippleTimer: 30
   animator: {fileID: 238226796529987909}
 --- !u!33 &4525068483317695792
 MeshFilter:

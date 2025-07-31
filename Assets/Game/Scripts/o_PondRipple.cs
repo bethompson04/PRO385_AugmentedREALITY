@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PondRipple : MonoBehaviour
+public class o_PondRipple : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Renderer renderer;

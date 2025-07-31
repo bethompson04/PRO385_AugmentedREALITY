@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public struct PondFishData
+public struct o_PondFishData
 {
     public string name;
     public string description;
@@ -12,9 +12,9 @@ public struct PondFishData
     public float maxWeight;
 }
 
-public class GameManager : MonoBehaviour
+public class o_GameManager : MonoBehaviour
 {
-    public enum GameState
+    public enum o_GameState
     {
         TITLE,
         CREATION,
@@ -24,11 +24,11 @@ public class GameManager : MonoBehaviour
         AQUARIUM
     }
 
-    public static GameManager instance {  get; private set; }
-    public GameState state;
+    public static o_GameManager instance {  get; private set; }
+    public o_GameState state;
 
     public Aquarium aquarium;
-    public DataList<PondFishData> pondDataList;
+    public DataList<o_PondFishData> pondDataList;
 
     public void Awake()
     {
@@ -44,11 +44,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        pondDataList = SystemIO.LoadFile<PondFishData>("pond_data");
+        pondDataList = SystemIO.LoadFile<o_PondFishData>("pond_data");
         aquarium.LoadAquarium();
     }
 
-    public void setState(GameState newState)
+    public void setState(o_GameState newState)
     {
         state = newState;
         Debug.Log(state);

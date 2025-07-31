@@ -951,31 +951,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3359491539757675513, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3359491539757675513, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3359491539757675513, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.21000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3359491539757675513, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 3359491539757675513, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7264500935165524230, guid: 32f3c04f9881ea74995059b5afa91f1b,
         type: 3}
       propertyPath: m_IsActive
@@ -993,48 +968,8 @@ PrefabInstance:
       objectReference: {fileID: 115295436}
     - target: {fileID: 7672279952934560257, guid: 32f3c04f9881ea74995059b5afa91f1b,
         type: 3}
-      propertyPath: fishRange.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672279952934560257, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: fishRange.y
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672279952934560257, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: fishRange.z
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672279952934560257, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
       propertyPath: continueButton
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672279952934560257, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: tankRotation.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672279952934560257, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: forwardDistance
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572003561478459319, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572003561478459319, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572003561478459319, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572003561478459319, guid: 32f3c04f9881ea74995059b5afa91f1b,
         type: 3}
@@ -1085,11 +1020,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572003561478459319, guid: 32f3c04f9881ea74995059b5afa91f1b,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

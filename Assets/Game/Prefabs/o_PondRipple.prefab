@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7052407966979916776}
-  - component: {fileID: 398648773567088699}
+  - component: {fileID: -752405935727319912}
   - component: {fileID: 2602014221766084166}
   - component: {fileID: 5279862457217524050}
   - component: {fileID: 5324898017319942687}
   m_Layer: 0
-  m_Name: PondRipple
+  m_Name: o_PondRipple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &398648773567088699
+--- !u!114 &-752405935727319912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4334417992615050344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b061ed77bf18a0c498f7be8b4adbcaf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cf096fe54e32014b8cd6925809a6676, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ripple
+  m_EditorClassIdentifier: Assembly-CSharp::PondRipple
 --- !u!95 &2602014221766084166
 Animator:
   serializedVersion: 7

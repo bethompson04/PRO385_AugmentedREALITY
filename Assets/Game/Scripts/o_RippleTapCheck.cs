@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARFoundation; // For AR specific components if needed
 
-public class RippleTapCheck : MonoBehaviour {
+public class o_RippleTapCheck : MonoBehaviour {
 
     private PlayerInput playerInput;
     private InputAction touchPositionAction;
@@ -16,7 +16,7 @@ public class RippleTapCheck : MonoBehaviour {
 
 	void Update() {
         // Check for touch input (for mobile devices)
-        if (touchPressAction.WasPerformedThisFrame() && GameManager.instance.state != GameManager.GameState.FIGHT) {
+        if (touchPressAction.WasPerformedThisFrame() && o_GameManager.instance.state != o_GameManager.o_GameState.FIGHT) {
             Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
             HandleTap(screenPosition);
         }
@@ -39,7 +39,7 @@ public class RippleTapCheck : MonoBehaviour {
 
             // Example: Check if the tapped object has a specific tag
             if (hit.collider.CompareTag("Ripple")) {
-                InteractManager.GetInstance().RippleClikced();
+                o_InteractManager.GetInstance().RippleClikced();
                 // Add your custom logic here for when the object is tapped
             }
         }

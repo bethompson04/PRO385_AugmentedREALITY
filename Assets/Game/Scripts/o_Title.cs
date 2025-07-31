@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Title : MonoBehaviour
+public class o_Title : MonoBehaviour
 {
     [SerializeField] float rotationSpeed;
     [SerializeField] float zoomDuration = 1;

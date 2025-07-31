@@ -3,9 +3,9 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FishSpawner : MonoBehaviour
+public class o_FishSpawner : MonoBehaviour
 {
-	public static FishSpawner instance { get; private set; }
+	public static o_FishSpawner instance { get; private set; }
 
 	[SerializeField] public GameObject tempFish;
 	[SerializeField] public GameObject fishDataUI;
@@ -37,8 +37,8 @@ public class FishSpawner : MonoBehaviour
 		//play animation from pond coordinate
 		//have fish jump facing sideways from camera
 
-		Fish fishScript = tempFish.GetComponent<Fish>();
-		fishScript.setFish(GameManager.instance.pondDataList.list[UnityEngine.Random.Range(0, GameManager.instance.pondDataList.list.Count)]);
+		o_Fish fishScript = tempFish.GetComponent<o_Fish>();
+		fishScript.setFish(o_GameManager.instance.pondDataList.list[UnityEngine.Random.Range(0, o_GameManager.instance.pondDataList.list.Count)]);
 		currentFish = Instantiate(tempFish);
 		fishSpawned = true;
 	}
@@ -59,7 +59,7 @@ public class FishSpawner : MonoBehaviour
 		TMP_Text weightText = fishDataUI.GetNamedChild("Weight").GetComponent<TMP_Text>();
 		TMP_Text descriptionText = fishDataUI.GetNamedChild("Description").GetComponent<TMP_Text>();
 
-		Fish fishScript = currentFish.GetComponent<Fish>();
+		o_Fish fishScript = currentFish.GetComponent<o_Fish>();
 		nameText.text = fishScript.fishData.name;
 		weightText.text = "Weight: " + weight.ToString();
 		descriptionText.text = fishScript.fishData.description;

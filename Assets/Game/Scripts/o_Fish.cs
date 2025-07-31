@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Fish : MonoBehaviour
+public class o_Fish : MonoBehaviour
 {
-	public enum FishState
+	public enum o_FishState
     {
         SIDEWAYS_INTRO,
         COMBAT,
@@ -16,7 +15,7 @@ public class Fish : MonoBehaviour
 		NONE
     }
 
-	private FishSpawner fishSpawner = FishSpawner.instance;
+	private o_FishSpawner fishSpawner = o_FishSpawner.instance;
 	
 	[SerializeField] Transform modelParent;
 	[SerializeField] GameObject boxingGloves;
@@ -29,7 +28,7 @@ public class Fish : MonoBehaviour
     private float endTimer = 0;
 
     [Header("Fish Animation")]
-	[SerializeField] public FishState fishState = FishState.SIDEWAYS_INTRO;
+	[SerializeField] public o_FishState fishState = o_FishState.SIDEWAYS_INTRO;
 	
 	[SerializeField] float lerpedRotationY;
 	[SerializeField] float rotationDamping = 5f;
@@ -38,7 +37,7 @@ public class Fish : MonoBehaviour
 
 
 	[Header("Fish Data")]
-	[SerializeField] public PondFishData fishData;
+	[SerializeField] public o_PondFishData fishData;
 	private float weight = 0;
 	
 	private float lockout;
@@ -72,7 +71,7 @@ public class Fish : MonoBehaviour
 		audioSource = GetComponent<AudioSource>();
 	}
 
-	public void setFish(PondFishData fish)
+	public void setFish(o_PondFishData fish)
 	{
 		fishData = fish;
         var model = Resources.Load<Mesh>(fishData.modelPath);
@@ -88,10 +87,10 @@ public class Fish : MonoBehaviour
     {
         switch (fishState)
 		{
-			case FishState.SIDEWAYS_INTRO:
+			case o_FishState.SIDEWAYS_INTRO:
                 if (newStateTransition)
 				{
-					StartCoroutine(LerpRotation(0, -90f, 4f, FishState.COMBAT));
+					StartCoroutine(LerpRotation(0, -90f, 4f, o_FishState.COMBAT));
 					newStateTransition = false;
                     audioSource.clip = clipList[0];
                     audioSource.Play();
@@ -100,14 +99,14 @@ public class Fish : MonoBehaviour
 				FaceCamera(lerpedRotationY);
 
 				break;
-			case FishState.COMBAT:
+			case o_FishState.COMBAT:
 				if (newStateTransition)
 				{
-					GameManager.instance.setState(GameManager.GameState.FIGHT);
+					o_GameManager.instance.setState(o_GameManager.o_GameState.FIGHT);
 					fishSpawner.clashBar.gameObject.SetActive(true);
 					fightStartSource.Play();
 					boxingGloves.SetActive(true);
-					StartCoroutine(LerpRotation(-90, 0f, 0.5f, FishState.NONE));
+					StartCoroutine(LerpRotation(-90, 0f, 0.5f, o_FishState.NONE));
 					newStateTransition = false;
 					
 					audioSource.clip = clipList[1];
@@ -118,7 +117,7 @@ public class Fish : MonoBehaviour
 				FaceCamera(lerpedRotationY);
 
 				break;
-			case FishState.END:
+			case o_FishState.END:
 				if (newStateTransition)
 				{
 					fishSpawner.clashBar.gameObject.SetActive(false);
@@ -127,12 +126,12 @@ public class Fish : MonoBehaviour
                     fishSpawner.SetFishDataUI(weight);
 
 					boxingGloves.SetActive(false);
-					StartCoroutine(LerpRotation(0, -90f, 2f, FishState.NONE));
+					StartCoroutine(LerpRotation(0, -90f, 2f, o_FishState.NONE));
 					newStateTransition = false;
                     audioSource.clip = clipList[2];
 					audioSource.Play();
 
-					GameManager.instance.setState(GameManager.GameState.POND);
+					o_GameManager.instance.setState(o_GameManager.o_GameState.POND);
 					animator.SetBool("Combat", false);
 
 					endTouchTimer = 0f;
@@ -146,7 +145,7 @@ public class Fish : MonoBehaviour
 				endTimer += Time.deltaTime;
 
 				break;
-			case FishState.LOSE:
+			case o_FishState.LOSE:
 				Destroy(gameObject);
 				break;
 		}
@@ -168,7 +167,7 @@ public class Fish : MonoBehaviour
         gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, camPos + cam.transform.forward * forwardDistance, Time.deltaTime * lerpPositionDamping);
 	}
 
-    IEnumerator LerpRotation(float start, float end, float lerpDuration, FishState endState)
+    IEnumerator LerpRotation(float start, float end, float lerpDuration, o_FishState endState)
     {
         float timeElapsed = 0;
         while (timeElapsed < lerpDuration)
@@ -185,7 +184,7 @@ public class Fish : MonoBehaviour
 
 		lerpedRotationY = end;
 
-		if (endState != FishState.NONE)
+		if (endState != o_FishState.NONE)
 		{
 			fishState = endState;
 			newStateTransition = true;
@@ -197,7 +196,7 @@ public class Fish : MonoBehaviour
 		if (fishSpawner.clashBar.value >= fishSpawner.clashBar.maxValue)
 		{
 			newStateTransition = true;
-			fishState = FishState.END;
+			fishState = o_FishState.END;
 			return;
 		}
 
