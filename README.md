@@ -1,9 +1,18 @@
 # Fish Fury
 <p align="center">
-  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg" width="180" height="390" />
-  <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg" width="180" height="390" />
+  <div className="row" align="center">
+    <img width="600" height="450" alt="fish_fury_logo" src="https://github.com/user-attachments/assets/93eaa144-1d61-4f53-8391-c0a6825a6451" />
+  </div>
 </p>
-Fish Fury is an action fishing AR game for Android! Set your pond and fish up fish from ripples in the water. Once you reel them in, they fight back! Mash the screen as fast as possible to defeat the fish in combat and add it to your aquarium. From there, you can fish up more fish or view your collection at the aquarium.
+<p>
+Fish Fury is an action fishing AR game for Android! Set up your pond and reel up fish from ripples in the water. Watch out though! Once you reel them in, they fight back! Mash the screen as fast as possible to knock that fish’s lights out. View your collection in the aquarium, or keep fishing n’ punching away!
+</p>
+<p>
+  <div className="row" align="center">
+    <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_1.jpg" width="180" height="390" />
+    <img src="https://github.com/bethompson04/PRO385_AugmentedREALITY/blob/main/GitImages/screenshot_2.jpg" width="180" height="390" />
+  </div>
+</p>
 
 ## Made by:
 - Bennie Thompson
